@@ -22,6 +22,8 @@ function App() {
       setIsRight(false);
       setLevel(level + 1);
       setSecretBird(birdsData[level + 1][getRandomIndex(answersNumber)]);
+    } else {
+      setLevel(level + 1);
     }
   };
 
@@ -38,27 +40,49 @@ function App() {
     checkAnswer(answer);
   };
 
+  const handleRepeatGame = () => {
+    setScore(0);
+    setLevel(0);
+    setIsRight(false);
+    setSecretBird(birdsData[0][0]);
+  };
+
   return (
     <div className="App">
       <Header score={score} level={level} />
-      <Question bird={secretBird} isRight={isRight} />
-      <div className="App__answers-and-info">
-        <Answers
-          answersList={birdsData[level]}
-          handleBirdName={handleBirdName}
-          falseList={falseList}
-          isRight={isRight}
-          secretBird={secretBird}
-        />
-        <Description />
-      </div>
-      <button
-        className={isRight ? "App__button" : "App__button App__button--off"}
-        disabled={!isRight}
-        onClick={handleLevel}
-      >
-        Следующий уровень
-      </button>
+      {level === 6 ? (
+        <div className="App__gameover">
+          <h1 className="App__finish-headline">Поздравляем!</h1>
+          <h4 className="App__finish-text">
+            Вы прошли викторину и набрали {score} из 30 возможных баллов.
+          </h4>
+          <hr />
+          <button className="App__button" onClick={handleRepeatGame}>
+            Попробовать еще раз!
+          </button>
+        </div>
+      ) : (
+        <>
+          <Question bird={secretBird} isRight={isRight} />
+          <div className="App__answers-and-info">
+            <Answers
+              answersList={birdsData[level]}
+              handleBirdName={handleBirdName}
+              falseList={falseList}
+              isRight={isRight}
+              secretBird={secretBird}
+            />
+            <Description />
+          </div>
+          <button
+            className={isRight ? "App__button" : "App__button App__button--off"}
+            disabled={!isRight}
+            onClick={handleLevel}
+          >
+            {level !== 5 ? "Следующий уровень" : "Закончить игру"}
+          </button>
+        </>
+      )}
     </div>
   );
 }
