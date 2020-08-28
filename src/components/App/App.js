@@ -3,6 +3,7 @@ import './App.scss';
 import Header from '../Header';
 import Question from '../Question';
 import Answers from '../Answers';
+import Description from '../Description';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Question />
       <div className="App__answers-and-info">
         <Answers />
+        <Description />
       </div>
       
     </div>
