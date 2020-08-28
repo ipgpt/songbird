@@ -6,3 +6,10 @@ $steel-blue: #4682b4;
 $light-blue: #00bfff;
 $dark-blue: #0d4f8b;
 $red: #ff0000;
+
+%blue-box {
+  color: $white;
+  background-color: $steel-blue;
+  border: 1px solid $light-blue;
+  border-radius: 4px;
+}

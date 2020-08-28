@@ -33,17 +33,24 @@
     padding: 5px 0;
     background-color: $grey;
     text-align: center;
-  }
 
-  &__level-item:first-of-type {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    background-color: $light-green;
-  }
+    &:first-of-type {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+  
+    &:last-of-type {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
 
-  &__level-item:last-of-type {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    &--in-progress {
+      background-color: $light-green;
+    }
+
+    &--done {
+      background-color: $green;
+    }
   }
 }
 

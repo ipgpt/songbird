@@ -11,13 +11,11 @@
   }
 
   &__button {
+    @extend %blue-box;
     width: 100%;
     margin-top: 20px;
+    margin-bottom: 20px;
     padding: 10px 0;
-    color: $white;
-    background-color: $steel-blue;
-    border: 1px solid $light-blue;
-    border-radius: 4px;
   }
 }
 
