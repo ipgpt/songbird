@@ -1,4 +1,4 @@
-@import '../../assets/scss/variables';
+@import "../../assets/scss/variables";
 
 .answers {
   width: 49%;
@@ -24,7 +24,7 @@
     }
 
     &::before {
-      content: '';
+      content: "";
       margin-right: 15px;
       display: inline-block;
       width: 10px;

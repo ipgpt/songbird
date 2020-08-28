@@ -1,7 +1,7 @@
-@import '../../assets/scss/variables';
+@import "../../assets/scss/variables";
 
 .description {
-  @extend %blue-box;
+  @include color-box($steel-blue, $light-blue);
   width: 49%;
   padding: 10px;
 }

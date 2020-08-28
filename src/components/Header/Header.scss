@@ -1,4 +1,4 @@
-@import '../../assets/scss/variables';
+@import "../../assets/scss/variables";
 
 .header {
   width: 100%;
@@ -12,7 +12,7 @@
 
   &__score {
     margin: 0;
-    align-self: center;   
+    align-self: center;
   }
 
   &__logo,
@@ -38,7 +38,7 @@
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
     }
-  
+
     &:last-of-type {
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
@@ -68,7 +68,7 @@
       border-bottom-left-radius: 0;
     }
 
-    &__level-item:nth-child(3) {  
+    &__level-item:nth-child(3) {
       border-top-right-radius: 5px;
     }
 

@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactAudioPlayer from 'react-audio-player';
-import './Question.scss';
-import BirdImage from '../../assets/img/bird.jpg';
+import React from "react";
+import ReactAudioPlayer from "react-audio-player";
+import "./Question.scss";
+import BirdImage from "../../assets/img/bird.jpg";
 
 function Question({ bird, isRight }) {
   if (isRight) {

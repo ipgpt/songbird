@@ -1,7 +1,14 @@
-import React from 'react';
-import './Header.scss';
+import React from "react";
+import "./Header.scss";
 
-const levelNames = ['Разминка', 'Воробьиные', 'Лесные', 'Певчие', 'Хищные', 'Морские'];
+const levelNames = [
+  "Разминка",
+  "Воробьиные",
+  "Лесные",
+  "Певчие",
+  "Хищные",
+  "Морские",
+];
 
 function Header({ score, level }) {
   return (
@@ -13,8 +20,19 @@ function Header({ score, level }) {
       <div className="header__bottom-part">
         <ul className="header__level-list">
           {levelNames.map((item, index) => {
-            return <li className={level === index ? 'header__level-item header__level-item--in-progress' :
-              level > index ? 'header__level-item header__level-item--done' : 'header__level-item'}>{item}</li>
+            return (
+              <li
+                className={
+                  level === index
+                    ? "header__level-item header__level-item--in-progress"
+                    : level > index
+                    ? "header__level-item header__level-item--done"
+                    : "header__level-item"
+                }
+              >
+                {item}
+              </li>
+            );
           })}
         </ul>
       </div>

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import './App.scss';
-import Header from '../Header';
-import Question from '../Question';
-import Answers from '../Answers';
-import Description from '../Description';
-import birdsData from '../../birds';
+import React, { useState } from "react";
+import "./App.scss";
+import Header from "../Header";
+import Question from "../Question";
+import Answers from "../Answers";
+import Description from "../Description";
+import birdsData from "../../birds";
 
 function App() {
   const answersNumber = 6;
@@ -13,7 +13,8 @@ function App() {
   const [isRight, setIsRight] = useState(false);
   const [secretBird, setSecretBird] = useState(birdsData[0][0]);
   const [falseList, setFalseList] = useState([]);
-  const getRandomIndex = (length) => Math.floor(Math.random() * Math.floor(length));
+  const getRandomIndex = (length) =>
+    Math.floor(Math.random() * Math.floor(length));
 
   const handleLevel = () => {
     if (level < 5) {
@@ -35,7 +36,7 @@ function App() {
 
   const handleBirdName = (answer) => () => {
     checkAnswer(answer);
-  }
+  };
 
   return (
     <div className="App">
@@ -52,10 +53,12 @@ function App() {
         <Description />
       </div>
       <button
-        className={isRight ? 'App__button' : 'App__button App__button--off'}
+        className={isRight ? "App__button" : "App__button App__button--off"}
         disabled={!isRight}
         onClick={handleLevel}
-      >Следующий уровень</button>
+      >
+        Следующий уровень
+      </button>
     </div>
   );
 }
