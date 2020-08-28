@@ -32,6 +32,18 @@
       border-radius: 5px;
       background-color: $grey;
     }
+
+    &--false {
+      &::before {
+        background-color: $red;
+      }
+    }
+
+    &--true {
+      &::before {
+        background-color: $light-green;
+      }
+    }
   }
 
   &__button:first-of-type {
