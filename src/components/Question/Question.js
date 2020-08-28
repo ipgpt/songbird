@@ -3,16 +3,32 @@ import ReactAudioPlayer from 'react-audio-player';
 import './Question.scss';
 import BirdImage from '../../assets/img/bird.jpg';
 
-function Question() {
+function Question({ bird, isTrue }) {
+  if (isTrue) {
+    return (
+      <div className="question">
+        <img className="question__bird-image" alt="bird" src={bird.image} />
+        <div className="question__content">
+          <h3 className="question__bird-name">{bird.name}</h3>
+          <hr />
+          <ReactAudioPlayer
+            className="question__audio-player"
+            src={bird.audio}
+            controls
+          />
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="question">
       <img className="question__bird-image" alt="bird" src={BirdImage} />
       <div className="question__content">
         <h3 className="question__bird-name">*****</h3>
         <hr />
-        <ReactAudioPlayer 
+        <ReactAudioPlayer
           className="question__audio-player"
-          src="https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3"
+          src={bird.audio}
           controls
         />
       </div>
