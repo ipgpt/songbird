@@ -3,8 +3,8 @@ import ReactAudioPlayer from 'react-audio-player';
 import './Question.scss';
 import BirdImage from '../../assets/img/bird.jpg';
 
-function Question({ bird, isTrue }) {
-  if (isTrue) {
+function Question({ bird, isRight }) {
+  if (isRight) {
     return (
       <div className="question">
         <img className="question__bird-image" alt="bird" src={bird.image} />

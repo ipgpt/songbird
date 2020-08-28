@@ -8,7 +8,7 @@ function Header({ score, level }) {
     <div className="header">
       <div className="header__top-part">
         <h2 className="header__logo">SongBird</h2>
-        <h5 className="header__score">Score: {score}</h5>
+        <h5 className="header__score">Счет: {score}</h5>
       </div>
       <div className="header__bottom-part">
         <ul className="header__level-list">
