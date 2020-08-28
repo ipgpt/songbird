@@ -1,15 +1,19 @@
 import React from 'react';
 import './Answers.scss';
 
-function Answers() {
+function Answers({ answersList, falseList, handleBirdName, isRight, secretBird }) {
   return (
     <div className="answers">
-      <button className="answers__button">1</button>
-      <button className="answers__button answers__button--false">2</button>
-      <button className="answers__button answers__button--true">3</button>
-      <button className="answers__button">4</button>
-      <button className="answers__button">5</button>
-      <button className="answers__button">6</button>
+
+      {answersList.map(item => {
+        return <button
+          className={isRight && item.name === secretBird.name ? 'answers__button answers__button--true' :
+            falseList.find(falseItem => falseItem === item.name) ? 'answers__button answers__button--false' :
+              'answers__button'}
+          disabled={isRight}
+          onClick={handleBirdName(item.name)}
+        >{item.name}</button>
+      })}
     </div>
   );
 }

@@ -9,23 +9,46 @@ import birdsData from '../../birds';
 function App() {
   const answersNumber = 6;
   const [level, setLevel] = useState(0);
-  const [score, seScore] = useState(0);
+  const [score, setScore] = useState(0);
   const [isRight, setIsRight] = useState(false);
   const [secretBird, setSecretBird] = useState(birdsData[0][0]);
+  const [falseList, setFalseList] = useState([]);
   const getRandomIndex = (length) => Math.floor(Math.random() * Math.floor(length));
+
   const handleLevel = () => {
     if (level < 5) {
+      setFalseList([]);
+      setIsRight(false);
       setLevel(level + 1);
-      setSecretBird(birdsData[level][getRandomIndex(answersNumber)]);
+      setSecretBird(birdsData[level + 1][getRandomIndex(answersNumber)]);
     }
   };
+
+  const checkAnswer = (answer) => {
+    if (secretBird.name === answer) {
+      setIsRight(true);
+      setScore(score + 5 - falseList.length);
+    } else {
+      setFalseList([...falseList, answer]);
+    }
+  };
+
+  const handleBirdName = (answer) => () => {
+    checkAnswer(answer);
+  }
 
   return (
     <div className="App">
       <Header score={score} level={level} />
       <Question bird={secretBird} isRight={isRight} />
       <div className="App__answers-and-info">
-        <Answers />
+        <Answers
+          answersList={birdsData[level]}
+          handleBirdName={handleBirdName}
+          falseList={falseList}
+          isRight={isRight}
+          secretBird={secretBird}
+        />
         <Description />
       </div>
       <button
