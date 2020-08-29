@@ -21,7 +21,7 @@ function Description({ answersList, answer }) {
               <p className="description__bird-species">{bird.species}</p>
               <hr />
               <ReactAudioPlayer
-                className="question__audio-player"
+                className="description__audio-player"
                 src={bird.audio}
                 controls
               />
