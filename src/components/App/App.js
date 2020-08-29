@@ -7,7 +7,7 @@ import Description from "../Description";
 import birdsData from "../../birds";
 import trueSoundMp3 from "../../assets/mp3/true.mp3";
 import falseSoundMp3 from "../../assets/mp3/false.mp3";
-import prizeImage from "../../assets/img/prize.jpg";
+import winImage from "../../assets/img/win.gif";
 
 function App() {
   const trueSound = new Audio(trueSoundMp3);
@@ -73,15 +73,15 @@ function App() {
       {level === maxLevel ? (
         score === maxScore ? (
           <div className="App__gameover">
-            <h1 className="App__finish-headline">Поздравляем!</h1>
+            <h2 className="App__finish-headline">Поздравляем!</h2>
             <h4 className="App__finish-text">
               Вы прошли викторину и набрали {score} из 30 возможных баллов.
             </h4>
-            <img className="App__prize" alt="prize" src={prizeImage} />
+            <img className="App__win" alt="win" src={winImage} />
           </div>
         ) : (
           <div className="App__gameover">
-            <h1 className="App__finish-headline">Игра окончена!</h1>
+            <h2 className="App__finish-headline">Игра окончена!</h2>
             <h4 className="App__finish-text">
               Вы прошли викторину и набрали {score} из 30 возможных баллов.
             </h4>
