@@ -1,0 +1,81 @@
+@import "../../assets/scss/variables";
+
+.description {
+  @include color-box($steel-blue, $light-blue);
+  width: 49%;
+  height: 272px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+
+  &__bird-image {
+    width: 200px;
+    height: 155px;
+    border-radius: 10px;
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__header {
+    width: 100%;
+    padding-left: 20px;
+  }
+
+  &__bird-species,
+  &__bird-info {
+    margin: 0;
+  }
+
+  &__bird-species {
+    line-height: 14px;
+  }
+
+  &__bird-info {
+    font-size: 13px;
+  }
+
+  &__start-text {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &__bird-name,
+  &__start-text,
+  &__bird-species,
+  &__bird-info {
+    cursor: default;
+  }
+
+  &__audio-player {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .description {
+    &__content {
+      display: block;
+      text-align: center;
+    }
+
+    &__header {
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .description {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+
+    &__bird-info {
+      font-size: 16px;
+    }
+  }
+}

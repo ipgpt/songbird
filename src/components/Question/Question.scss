@@ -1,0 +1,45 @@
+@import "../../assets/scss/variables";
+
+.question {
+  @include color-box($steel-blue, $light-blue);
+  margin: 20px 0;
+  padding: 20px;
+  display: flex;
+
+  &__bird-image {
+    width: 200px;
+    height: 155px;
+    border-radius: 10px;
+  }
+
+  &__content {
+    padding-left: 40px;
+    width: 100%;
+  }
+
+  &__bird-name {
+    cursor: default;
+  }
+
+  &__audio-player {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .question {
+    flex-direction: column;
+
+    &__bird-image {
+      margin: 0 auto;
+    }
+
+    &__content {
+      padding: 0;
+    }
+
+    &__bird-name {
+      text-align: center;
+    }
+  }
+}

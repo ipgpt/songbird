@@ -1,0 +1,59 @@
+@import "../../assets/scss/variables";
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  &__answers-and-info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    @include color-box($green, $light-green);
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 0;
+
+    &--off {
+      background-color: $grey;
+      border: 1px solid $grey;
+    }
+
+    &:hover {
+      filter: brightness(110%);
+    }
+  }
+
+  &__gameover {
+    @include color-box($steel-blue, $light-blue);
+    margin-top: 25px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  &__win {
+    width: 50%;
+    border: 1px solid $light-blue;
+    border-radius: 4px;
+  }
+
+  &__finish-headline,
+  &__finish-text {
+    cursor: default;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    &__answers-and-info {
+      flex-direction: column;
+    }
+
+    &__win {
+      width: 80%;
+    }
+  }
+}
