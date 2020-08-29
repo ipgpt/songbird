@@ -13,6 +13,7 @@ function Answers({
       {answersList.map((item) => {
         return (
           <button
+            key={item.id}
             className={
               isRight && item.name === secretBird.name
                 ? "answers__button answers__button--true"

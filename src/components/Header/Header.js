@@ -22,6 +22,7 @@ function Header({ score, level }) {
           {levelNames.map((item, index) => {
             return (
               <li
+                key={index}
                 className={
                   level === index
                     ? "header__level-item header__level-item--in-progress"

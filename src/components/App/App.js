@@ -5,8 +5,12 @@ import Question from "../Question";
 import Answers from "../Answers";
 import Description from "../Description";
 import birdsData from "../../birds";
+import trueSoundMp3 from "../../assets/mp3/true.mp3";
+import falseSoundMp3 from "../../assets/mp3/false.mp3";
 
 function App() {
+  const trueSound = new Audio(trueSoundMp3);
+  const falseSound = new Audio(falseSoundMp3);
   const answersNumber = 6;
   const getRandomIndex = (length) =>
     Math.floor(Math.random() * Math.floor(length));
@@ -35,10 +39,12 @@ function App() {
     if (isRight) {
       return;
     } else if (secretBird.name === answer) {
+      trueSound.play();
       setIsRight(true);
       setScore(score + 5 - falseList.length);
     } else {
       if (falseList.every((item) => item !== answer)) {
+        falseSound.play();
         setFalseList([...falseList, answer]);
       }
     }
