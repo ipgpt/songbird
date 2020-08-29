@@ -7,11 +7,14 @@ import Description from "../Description";
 import birdsData from "../../birds";
 import trueSoundMp3 from "../../assets/mp3/true.mp3";
 import falseSoundMp3 from "../../assets/mp3/false.mp3";
+import prizeImage from "../../assets/img/prize.jpg";
 
 function App() {
   const trueSound = new Audio(trueSoundMp3);
   const falseSound = new Audio(falseSoundMp3);
   const answersNumber = 6;
+  const maxLevel = 6;
+  const maxScore = 30;
   const getRandomIndex = (length) =>
     Math.floor(Math.random() * Math.floor(length));
   const [level, setLevel] = useState(0);
@@ -67,17 +70,27 @@ function App() {
   return (
     <div className="App">
       <Header score={score} level={level} />
-      {level === 6 ? (
-        <div className="App__gameover">
-          <h1 className="App__finish-headline">Поздравляем!</h1>
-          <h4 className="App__finish-text">
-            Вы прошли викторину и набрали {score} из 30 возможных баллов.
-          </h4>
-          <hr />
-          <button className="App__button" onClick={handleRepeatGame}>
-            Попробовать еще раз!
-          </button>
-        </div>
+      {level === maxLevel ? (
+        score === maxScore ? (
+          <div className="App__gameover">
+            <h1 className="App__finish-headline">Поздравляем!</h1>
+            <h4 className="App__finish-text">
+              Вы прошли викторину и набрали {score} из 30 возможных баллов.
+            </h4>
+            <img className="App__prize" alt="prize" src={prizeImage} />
+          </div>
+        ) : (
+          <div className="App__gameover">
+            <h1 className="App__finish-headline">Игра окончена!</h1>
+            <h4 className="App__finish-text">
+              Вы прошли викторину и набрали {score} из 30 возможных баллов.
+            </h4>
+            <hr />
+            <button className="App__button" onClick={handleRepeatGame}>
+              Попробовать еще раз!
+            </button>
+          </div>
+        )
       ) : (
         <>
           <Question bird={secretBird} isRight={isRight} />
@@ -96,7 +109,7 @@ function App() {
             disabled={!isRight}
             onClick={handleLevel}
           >
-            {level !== 5 ? "Следующий уровень" : "Закончить игру"}
+            {level !== 5 ? "Следующий вопрос" : "Перейти к результату"}
           </button>
         </>
       )}
