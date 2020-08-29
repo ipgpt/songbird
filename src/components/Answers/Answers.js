@@ -20,7 +20,6 @@ function Answers({
                 ? "answers__button answers__button--false"
                 : "answers__button"
             }
-            disabled={falseList.find((falseItem) => falseItem === item.name) || isRight}
             onClick={handleBirdName(item.name)}
           >
             {item.name}

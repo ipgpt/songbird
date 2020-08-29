@@ -8,13 +8,15 @@ import birdsData from "../../birds";
 
 function App() {
   const answersNumber = 6;
+  const getRandomIndex = (length) =>
+    Math.floor(Math.random() * Math.floor(length));
   const [level, setLevel] = useState(0);
   const [score, setScore] = useState(0);
   const [isRight, setIsRight] = useState(false);
-  const [secretBird, setSecretBird] = useState(birdsData[0][0]);
   const [falseList, setFalseList] = useState([]);
-  const getRandomIndex = (length) =>
-    Math.floor(Math.random() * Math.floor(length));
+  const [secretBird, setSecretBird] = useState(
+    birdsData[0][getRandomIndex(answersNumber)]
+  );
 
   const handleLevel = () => {
     if (level < 5) {
@@ -28,11 +30,15 @@ function App() {
   };
 
   const checkAnswer = (answer) => {
-    if (secretBird.name === answer) {
+    if (isRight) {
+      return;
+    } else if (secretBird.name === answer) {
       setIsRight(true);
       setScore(score + 5 - falseList.length);
     } else {
-      setFalseList([...falseList, answer]);
+      if (falseList.every((item) => item !== answer)) {
+        setFalseList([...falseList, answer]);
+      }
     }
   };
 
@@ -44,7 +50,8 @@ function App() {
     setScore(0);
     setLevel(0);
     setIsRight(false);
-    setSecretBird(birdsData[0][0]);
+    setFalseList([]);
+    setSecretBird(birdsData[0][getRandomIndex(answersNumber)]);
   };
 
   return (
