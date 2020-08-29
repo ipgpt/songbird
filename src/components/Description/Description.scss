@@ -3,10 +3,54 @@
 .description {
   @include color-box($steel-blue, $light-blue);
   width: 49%;
+  height: 272px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+
+  &__bird-image {
+    width: 200px;
+    height: 155px;
+    border-radius: 10px;
+  }
+
+  &__content {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  &__header {
+    width: 100%;
+    padding-left: 20px;
+  }
+
+  &__bird-species,
+  &__bird-info {
+    margin: 0;
+  }
+
+  &__bird-species {
+    line-height: 10px;
+  }
+
+  &__bird-info {
+    font-size: 13px;
+  }
+
+  &__bird-name,
+  &__start-text,
+  &__bird-species,
+  &__bird-info {
+    cursor: default;
+  }
+
+  &__audio-player {
+    width: 100%;
+  }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .description {
     width: 100%;
     margin-top: 20px;

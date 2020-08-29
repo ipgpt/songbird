@@ -12,6 +12,7 @@ function App() {
     Math.floor(Math.random() * Math.floor(length));
   const [level, setLevel] = useState(0);
   const [score, setScore] = useState(0);
+  const [answer, setAnswer] = useState("");
   const [isRight, setIsRight] = useState(false);
   const [falseList, setFalseList] = useState([]);
   const [secretBird, setSecretBird] = useState(
@@ -21,6 +22,7 @@ function App() {
   const handleLevel = () => {
     if (level < 5) {
       setFalseList([]);
+      setAnswer("");
       setIsRight(false);
       setLevel(level + 1);
       setSecretBird(birdsData[level + 1][getRandomIndex(answersNumber)]);
@@ -44,13 +46,15 @@ function App() {
 
   const handleBirdName = (answer) => () => {
     checkAnswer(answer);
+    setAnswer(answer);
   };
 
   const handleRepeatGame = () => {
     setScore(0);
     setLevel(0);
-    setIsRight(false);
+    setAnswer("");
     setFalseList([]);
+    setIsRight(false);
     setSecretBird(birdsData[0][getRandomIndex(answersNumber)]);
   };
 
@@ -79,7 +83,7 @@ function App() {
               isRight={isRight}
               secretBird={secretBird}
             />
-            <Description />
+            <Description answersList={birdsData[level]} answer={answer} />
           </div>
           <button
             className={isRight ? "App__button" : "App__button App__button--off"}
